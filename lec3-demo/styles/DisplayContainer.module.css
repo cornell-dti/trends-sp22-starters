@@ -1,0 +1,6 @@
+.imageContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    outline: solid black 2px;
+}
