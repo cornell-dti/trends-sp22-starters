@@ -1,16 +1,24 @@
 import { useEffect, useRef, useState } from "react"
-import { UPGRADES_DATA } from "../../data"
+import { UPGRADES_DATA, TICK } from "../../data"
 import UpgradeSection from "./UpgradeSection"
 import styles from "../../styles/Game.module.css"
+import { Upgrade } from "../../types"
 
-const TICK = 1000
+// HINT: you can store upgrade information with a Map (like dictionary)
+// with [key = upgrade] and [value = number of times purchased]
+const getInitialUpgrades = (): Map<Upgrade, number> => {
+  const upgradesMap = new Map<Upgrade, number>()
+  UPGRADES_DATA.forEach((upgrade) => {
+    upgradesMap.set(upgrade, 0)
+  })
+  return upgradesMap
+}
 
 const Game = () => {
   const [brbs, setBRBs] = useState(0)
 
   // TODO: State from UpgradeSection should be lifted here:
 
-  const clickIncome = 1 // TODO: This should be 1 + # of upgrades purchased
   const tickIncome = 0 // TODO: Calculate this by summing through upgrades
 
   const updateTick = useRef<() => void>()
@@ -32,9 +40,8 @@ const Game = () => {
       <div className={styles.body}>
         <div className={styles.column}>
           <h2>I have ${brbs} BRBs.</h2>
-          <p>Income per click: {clickIncome} BRBs</p>
           <p>Income per tick: {tickIncome} BRBs</p>
-          <button onClick={() => setBRBs((x) => x + clickIncome)}>
+          <button onClick={() => setBRBs((x) => x + 1)}>
             Acquire BRB
           </button>
         </div>

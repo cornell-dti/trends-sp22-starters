@@ -1,19 +1,20 @@
 import { useState } from "react"
 import { Upgrade } from "../../types"
 
+// TODO: Modify the prop type as you see fit
 type Props = {
-  brbs: number
   upgrade: Upgrade
+  brbs: number
 }
 
 const UpgradeSection = ({
+  upgrade,
   brbs,
-  upgrade: { name, basePrice, brbsPerSecond },
 }: Props) => {
   /** TODO: This state needs to be lifted up! */
   const [purchasedCount, setPurchasedCount] = useState(0)
 
-  const price = basePrice // TODO: Make price increase as you purchase more
+  const price = upgrade.basePrice // TODO: Make price increase as you purchase more
 
   const buyUpgrade = () => {
     if (brbs < price) return
@@ -25,9 +26,9 @@ const UpgradeSection = ({
   return (
     <div>
       <h3>
-        {name} [{purchasedCount}]
+        {upgrade.name} [{purchasedCount}]
       </h3>
-      <p>Perk: {brbsPerSecond} BRBs/tick</p>
+      <p>Effect: {upgrade.brbsPerSecond} BRBs/tick</p>
       <p>Price: {price} BRBs</p>
       <button onClick={buyUpgrade}>Buy</button>
     </div>

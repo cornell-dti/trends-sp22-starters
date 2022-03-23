@@ -1,5 +1,7 @@
 import { Upgrade } from "../types"
 
+export const TICK = 1000
+
 // TODO: Have at least 3 total upgrades!
 export const UPGRADES_DATA: Upgrade[] = [
   {
