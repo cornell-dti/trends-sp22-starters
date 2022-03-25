@@ -41,7 +41,7 @@ const Game = () => {
     <div className={styles.container}>
       {/* TODO: Display '💰BRB Clicker💰' instead when you win (have purchased at least one of each upgrade) */}
       <h1>BRB Clicker</h1>
-      {/* TOOD: Display a win message (such as <p>YOU WIN! See how far you go!</p>) ONLY if you win */}
+      {/* TOOD: Display a win message (such as <p>YOU WON! See how far you go!</p>) ONLY if you win */}
       <div className={styles.body}>
         <div className={styles.column}>
           {/* TODO: Add more props! */}
