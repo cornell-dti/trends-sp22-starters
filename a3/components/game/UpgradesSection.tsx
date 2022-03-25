@@ -12,7 +12,7 @@ const UpgradesSection = ({ brbs }: Props) => {
       <h2>Upgrades</h2>
       {UPGRADES_DATA.map((upgrade) => (
         // TODO: Add more props!
-        <UpgradeDisplay key={upgrade.id} brbs={brbs} upgrade={upgrade} />
+        <UpgradeDisplay key={upgrade.id} upgrade={upgrade} brbs={brbs} />
       ))}
     </div>
   )
