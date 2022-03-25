@@ -5,7 +5,7 @@ type Props = {
 }
 
 const ClickerSection = ({ clickIncome, tickIncome }: Props) => {
-  // THe "real" BRB count state is "lifted up" to Game.tsx
+  // TODO: The "real" BRB count state is "lifted up" to Game.tsx
   // so pass it down here through props! (and remove this variable)
   const brbs = 0
   return (
