@@ -7,7 +7,7 @@ type Props = {
 }
 
 const UpgradeDisplay = ({ upgrade, brbs }: Props) => {
-  // TODO: Remove this and pass down through props from Game.tsx instead
+  // TODO: Calculate this using upgradeCounts which should be passed down
   const purchasedCount = 0
   // TODO: Make price increase as you purchase more
   const price = upgrade.basePrice
