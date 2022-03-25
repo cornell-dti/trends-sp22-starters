@@ -1,3 +1,3 @@
-# Trends A2 Starter Code
+# Trends A3 Starter Code
 
-This is a really simple project where you will make a club roster and an incremental game.
+In this project we make a more advanced incremental game.
