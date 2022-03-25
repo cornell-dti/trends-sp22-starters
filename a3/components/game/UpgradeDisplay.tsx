@@ -6,7 +6,7 @@ type Props = {
   readonly brbs: number
 }
 
-const UpgradeSection = ({ upgrade, brbs }: Props) => {
+const UpgradeDisplay = ({ upgrade, brbs }: Props) => {
   // TODO: Remove this and pass down through props from Game.tsx instead
   const purchasedCount = 0
   // TODO: Make price increase as you purchase more
@@ -22,12 +22,12 @@ const UpgradeSection = ({ upgrade, brbs }: Props) => {
       <h3>
         {upgrade.name} [{purchasedCount}]
       </h3>
-      <p>Effect: {upgrade.brbsPerSecond} BRBs/tick</p>
+      <p>Effect: {upgrade.incomePerTick} BRBs/tick</p>
       <p>Price: {price} BRBs</p>
-      {/* TODO: Buy btn should be disabled if you can't afford upgrade */}
+      {/* TODO: Disable buy button (grey out) if you can't afford upgrade */}
       <button onClick={buyUpgrade}>Buy</button>
     </div>
   )
 }
 
-export default UpgradeSection
+export default UpgradeDisplay

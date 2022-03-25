@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react"
 import { UPGRADES_DATA, TICK } from "../../data"
-import UpgradeSection from "./UpgradeSection"
 import styles from "../../styles/Game.module.css"
 import { Upgrade } from "../../types"
+import ClickerSection from "./ClickerSection"
+import UpgradesSection from "./UpgradesSection"
 
 // This is the initial state for [upgradeCounts]
 // We set all purchase counts to 0 at the beginning of the game
-const getInitialUpgrades = (): Map<Upgrade, number> => {
+const initUpgrades = (): Map<Upgrade, number> => {
   const upgradesMap = new Map<Upgrade, number>()
   UPGRADES_DATA.forEach((upgrade) => upgradesMap.set(upgrade, 0))
   return upgradesMap
@@ -18,10 +19,10 @@ const Game = () => {
   // You can store upgrade information with a Map (like dictionary)
   // with [key = upgrade] and [value = number of times purchased]
   // TODO: Pass down this state to child components
-  const [upgradeCounts, setUpgradeCounts] = useState(getInitialUpgrades())
+  const [upgradeCounts, setUpgradeCounts] = useState(initUpgrades())
 
-  const clickIncome = 1 // TODO: Calculate this by summing through upgrades
-  const tickIncome = 0 // TODO: Calculate this by summing through upgrades
+  const clickIncome = 1 // TODO: Calculate this using upgradeCounts
+  const tickIncome = 0 // TODO: Calculate this using upgradeCounts
 
   /** Ticker Section Begin: No need to touch */
   const onTick = useRef<() => void>()
@@ -38,22 +39,16 @@ const Game = () => {
 
   return (
     <div className={styles.container}>
-      <h1>💰BRB Clicker💰</h1>
+      {/* TODO: Display '💰BRB Clicker💰' instead when you have purchased at least one of each upgrade */}
+      <h1>BRB Clicker</h1>
       <div className={styles.body}>
         <div className={styles.column}>
-          <h2>Balance: ${brbs} BRBs</h2>
-          <p>Income per click: {clickIncome} BRBs</p>
-          <p>Income per tick: {tickIncome} BRBs</p>
-          <button onClick={() => setBRBs((x) => x + clickIncome)}>
-            Acquire BRB
-          </button>
+          {/* TODO: Add more props! */}
+          <ClickerSection clickIncome={clickIncome} tickIncome={tickIncome} />
         </div>
         <div className={styles.column}>
-          <h2>Upgrades</h2>
-          {UPGRADES_DATA.map((upgrade) => (
-            // TODO: Update whenever UpgradeSection's Props type is modified
-            <UpgradeSection key={upgrade.id} brbs={brbs} upgrade={upgrade} />
-          ))}
+          {/* TODO: Add more props! */}
+          <UpgradesSection brbs={brbs} />
         </div>
       </div>
     </div>
