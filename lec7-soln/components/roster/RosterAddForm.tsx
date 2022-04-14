@@ -1,11 +1,26 @@
+import { collection, doc, setDoc } from "firebase/firestore"
 import { useState } from "react"
+import { ClubMember } from "../../types"
+import { db } from "../../util/firebase"
 
-const RosterAddForm = () => {
+type Props = {
+  refreshData: () => void
+}
+
+const RosterAddForm = ({ refreshData }: Props) => {
   const [nameInput, setNameInput] = useState("")
   const [majorInput, setMajorInput] = useState("")
   const [graduationYearInput, setGraduationYearInput] = useState(0)
 
   const handleAdd = () => {
+    const data: ClubMember = {
+      name: nameInput,
+      major: majorInput,
+      graduationYear: graduationYearInput,
+    }
+    const rosterRef = collection(db, "roster")
+    setDoc(doc(rosterRef), data).then(refreshData)
+
     setNameInput("")
     setMajorInput("")
   }
