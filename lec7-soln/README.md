@@ -1,3 +1,3 @@
-# Trends A4 Starter Code
+# Trends Lecture 7 Demo Solution Code
 
-In this project we make a task tracker using Firebase.
+See lec7-demo folder for starter code.
