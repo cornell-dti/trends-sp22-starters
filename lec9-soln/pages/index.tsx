@@ -1,4 +1,4 @@
-import { Container, Heading, Stack, Text } from "@chakra-ui/react"
+import { Heading, Text } from "@chakra-ui/react"
 import Layout from "../components/layout/Layout"
 
 const IndexPage = () => (

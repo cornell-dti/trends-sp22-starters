@@ -1,15 +1,6 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import NextLink from "next/link"
-import {
-  Box,
-  Button,
-  Container,
-  HStack,
-  Link,
-  Stack,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react"
+import { Box, Button, HStack, Link } from "@chakra-ui/react"
 import { useAuth } from "../auth/AuthUserProvider"
 import { signInWithGoogle } from "../../util/firebase"
 import { useRouter } from "next/router"

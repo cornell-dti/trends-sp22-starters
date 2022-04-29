@@ -2,7 +2,7 @@ import React, { ReactNode } from "react"
 import Head from "next/head"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
-import { Container, Divider } from "@chakra-ui/react"
+import { Container } from "@chakra-ui/react"
 
 type Props = {
   children?: ReactNode
